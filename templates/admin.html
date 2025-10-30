@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard | MindDue</title>
+</head>
+<body>
+    <h1>🧠 MindDue Admin Dashboard</h1>
+    <a href="login.html">Logout</a>
+
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Subject</th>
+            <th>Title</th>
+            <th>Deadline</th>
+            <th>Action</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+            <td>{{ task[3] }}</td>
+            <td>{{ task[4] }}</td>
+            <td><a href="delete_task.html">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

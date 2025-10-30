@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MindDue | Assignment Tracker</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
@@ -14,10 +14,17 @@
 
         <section class="form-section">
             <h2>Add New Task</h2>
-            <form action="/add" method="post" class="task-form">
-                <input type="text" name="subject" placeholder="Enter subject..." required>
-                <input type="text" name="title" placeholder="Enter task title..." required>
-                <input type="date" name="deadline" required>
+            <form action="add_task.html" method="post" class="task-form">
+
+                <label>
+                    <input type="text" name="subject" placeholder="Enter subject..." required>
+                </label>
+                <label>
+                    <input type="text" name="title" placeholder="Enter task title..." required>
+                </label>
+                <label>
+                    <input type="date" name="deadline" required>
+                </label>
                 <button type="submit">+ Add Task</button>
             </form>
         </section>
@@ -36,12 +43,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i, task in enumerate(tasks) %}
+                    {% for task in tasks %}
                     <tr>
-                        <td>{{ i + 1 }}</td>
+                        <td>{{ loop.index }}</td>
                         <td>{{ task.subject }}</td>
                         <td>{{ task.title }}</td>
-                        <td>{{ task.deadline.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ task.deadline.utctime('%Y-%m-%d') }}</td>
                         <td>
                             {% if task.deadline < today %}
                                 <span class="status overdue">Overdue</span>
@@ -51,7 +58,7 @@
                                 <span class="status ongoing">Ongoing</span>
                             {% endif %}
                         </td>
-                        <td><a href="/delete/{{ i }}" class="delete-btn">Delete</a></td>
+                        <td><a href="delete_task.html" class="delete-btn">🗑️</a></td>
                     </tr>
                     {% else %}
                     <tr>

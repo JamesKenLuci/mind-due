@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Task</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <div class="container">
         <h2>➕ Add New Assignment</h2>
         <form method="POST">
             <label>Subject:</label>
-            <input type="text" name="subject" required>
+            <label>
+                <input type="text" name="subject" required>
+            </label>
 
             <label>Title / Description:</label>
-            <input type="text" name="title" required>
+            <label>
+                <input type="text" name="title" required>
+            </label>
 
             <label>Deadline:</label>
-            <input type="date" name="deadline" required>
+            <label>
+                <input type="date" name="deadline" required>
+            </label>
 
             <button type="submit">Save Task</button>
         </form>
