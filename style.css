@@ -1,0 +1,49 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #7a93f3;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+    
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2f3640;
+}
+
+.btn, button {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #303c45;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #534b4b;
+}
+
+tr.overdue {
+    background-color: #ffcccc;
+}
