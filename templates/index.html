@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MindDue | Assignment Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🧠 MindDue</h1>
+            <p>Your Personal Assignment & Deadline Tracker</p>
+        </header>
+
+        <section class="form-section">
+            <h2>Add New Task</h2>
+            <form action="/add" method="post" class="task-form">
+                <input type="text" name="subject" placeholder="Enter subject..." required>
+                <input type="text" name="title" placeholder="Enter task title..." required>
+                <input type="date" name="deadline" required>
+                <button type="submit">+ Add Task</button>
+            </form>
+        </section>
+
+        <section class="task-list">
+            <h2>📋 Task List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Title</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i, task in enumerate(tasks) %}
+                    <tr>
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ task.subject }}</td>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.deadline.strftime('%Y-%m-%d') }}</td>
+                        <td>
+                            {% if task.deadline < today %}
+                                <span class="status overdue">Overdue</span>
+                            {% elif task.deadline == today %}
+                                <span class="status today">Due Today</span>
+                            {% else %}
+                                <span class="status ongoing">Ongoing</span>
+                            {% endif %}
+                        </td>
+                        <td><a href="/delete/{{ i }}" class="delete-btn">Delete</a></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="no-task">No tasks yet! Add one to get started 🚀</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
