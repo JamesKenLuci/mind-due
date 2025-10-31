@@ -1,49 +1,121 @@
+/* GLOBAL */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #7a93f3;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    align-content: center;
-    
+    background: linear-gradient(to bottom right, #4a90e2, #004aad);
+    color: #fff;
 }
 
-.container {
-    width: 80%;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-h1, h2 {
+/* NAVBAR */
+.navbar {
     text-align: center;
-    color: #2f3640;
+    padding: 20px;
 }
 
-.btn, button {
-    display: inline-block;
-    padding: 10px 16px;
-    background: #303c45;
+/* GRID */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+/* COLUMNS */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #ffffff;
+    color: #000;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* FORMS */
+input, select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #4a90e2;
     color: white;
-    text-decoration: none;
-    border-radius: 8px;
     border: none;
-    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
+.small {
+    width: auto;
+    padding: 5px 15px;
+}
+
+/* QUICK ADD */
+.quick-container {
+    display: flex;
+    gap: 10px;
+}
+
+.quick-btn {
+    padding: 10px;
+    background: #4a90e2;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 25px;
 }
 
 th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #534b4b;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
 }
 
-tr.overdue {
-    background-color: #ffcccc;
+.delete {
+    color: red;
+    text-decoration: none;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+}
+.progress {
+    height: 10px;
+    background: #4caf50;
+    border-radius: 5px;
+}
+
+.urgent {
+    color: red;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.logout-box {
+    text-align: center;
+    padding: 20px;
+}
+.logout-link {
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
 }
